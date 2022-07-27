@@ -1,0 +1,44 @@
+.storeWrapper {
+  display: flex;
+  gap: 50px;
+  background-color: white;
+  border: 1px solid rgb(183, 148, 254);
+  border-radius: 5px;
+  width: 80%;
+  box-shadow: 5px 5px 5px rgb(172, 168, 168);
+}
+
+.storeImage {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  box-shadow: 5px 5px 5px rgb(172, 168, 168);
+  margin: 20px;
+}
+
+.storeInfoWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.nameAndRateWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.storeName {
+  font-weight: 500;
+  word-spacing: 3px;
+  margin: 20px 0px 20px 0px;
+}
+
+.starImg {
+  width: 18px;
+  height: 18px;
+  margin: 2px;
+}
+
+.header {
+  font-weight: 500;
+  margin: 10px 0px 10px 0px;
+}

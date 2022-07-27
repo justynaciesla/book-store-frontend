@@ -1,0 +1,8 @@
+.background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  background-color: rgb(234, 221, 255);
+  width: 100vw;
+}
