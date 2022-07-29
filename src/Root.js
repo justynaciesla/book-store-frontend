@@ -6,15 +6,18 @@ const Root = () => {
   const [stores, setStores] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/stores").then((response) =>
-      response.json().then((data) => {
-        setStores(data.data);
-      })
-    );
+    const fetchData = async () => {
+      await fetch("http://localhost:3000/stores").then((response) =>
+        response.json().then((data) => {
+          setStores(data);
+        })
+      );
+    };
+    fetchData();
   }, []);
 
   return (
-    <StoreContext.Provider value={{ stores }}>
+    <StoreContext.Provider value={{ stores, setStores }}>
       <StoresWrapper />
     </StoreContext.Provider>
   );

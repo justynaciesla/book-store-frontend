@@ -1,17 +1,58 @@
-import React from "react";
+import React, { useContext } from "react";
+import StoreContext from "../../context";
 import "./BestSellingBooks.css";
 
-const BestSellingBooks = () => {
+const BestSellingBooks = ({ store }) => {
+  const { stores } = useContext(StoreContext);
+  const storeIncluded = stores.included;
+  const allBooksData = storeIncluded?.filter((item) => item.type === "books");
+  const allAuthorsData = storeIncluded.filter(
+    (item) => item.type === "authors"
+  );
+
+  const extractBestSellingBooks = (store) => {
+    const filteredData = store.store.data.relationships.books
+      ? store.store.data.relationships.books.data
+      : [{}];
+
+    const books = allBooksData
+      .filter((c) => filteredData.some((s) => s.id === c.id))
+      .sort((a, b) =>
+        a.attributes.copiesSold < b.attributes.copiesSold ? 1 : -1
+      );
+
+    const booksWithAuthorName = books.map((book) => {
+      const authorName = allAuthorsData.find(
+        (author) => author.id === book.relationships.author.data.id
+      );
+      book.authorName = authorName ? authorName.attributes : null;
+
+      return book;
+    });
+
+    const renderedBooks = booksWithAuthorName.slice(0, 2).map((book) => (
+      <tr>
+        <td>{book.attributes.name}</td>
+        <td>{book.authorName.fullName}</td>
+      </tr>
+    ));
+
+    return (
+      <>
+        {booksWithAuthorName.length === 0 ? (
+          <h4>No data available</h4>
+        ) : (
+          renderedBooks
+        )}
+      </>
+    );
+  };
+
   return (
     <>
       <h3>Best-selling Books</h3>
       <table>
-        <tbody>
-          <tr>
-            <td>Jim</td>
-            <td>00001</td>
-          </tr>
-        </tbody>
+        <tbody>{extractBestSellingBooks(store)}</tbody>
       </table>
     </>
   );
