@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Store from "../Store";
 import "./StoreWrapper.css";
 import StoreContext from "../../context";
 
 const StoresWrapper = () => {
-  const { stores } = useContext(StoreContext);
+  const { stores, setFlag, flag } = useContext(StoreContext);
   const storeData = stores.data;
   const storeIncluded = stores.included;
   const filteredData = storeIncluded?.filter(
@@ -20,10 +20,6 @@ const StoresWrapper = () => {
 
         return <Store store={{ data, ...countryCodeData }} />;
       })}
-
-      {/* {storeData?.map((store) => (
-        <Store store={store} />
-      ))} */}
     </div>
   );
 };

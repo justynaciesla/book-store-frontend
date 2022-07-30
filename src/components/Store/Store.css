@@ -2,23 +2,27 @@
   display: flex;
   flex-direction: column;
   width: 80%;
-  gap: 10px;
+  gap: 0.6rem;
   background-color: white;
   border: 1px solid rgb(183, 148, 254);
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px rgb(172, 168, 168);
+  border-radius: 0.3rem;
+  box-shadow: 0.3rem 0.3rem 0.3rem rgb(172, 168, 168);
+  margin: 40px 0px 10px 0px;
 }
+
 .storeWrapper {
   display: flex;
-  gap: 50px;
+  gap: 3rem;
+  margin: 40px 0px 0px 0px;
 }
 
 .storeImage {
   width: 15rem;
   height: 15rem;
+  object-fit: cover;
   border-radius: 50%;
-  box-shadow: 5px 5px 5px rgb(172, 168, 168);
-  margin: 20px 20px 20px 50px;
+  box-shadow: 0.3rem 0.3rem 0.3rem rgb(172, 168, 168);
+  margin: 1.25rem 1.25rem 1.25rem 3.1rem;
 }
 
 .storeInfoWrapper {
@@ -35,17 +39,51 @@
 
 .storeName {
   font-weight: 500;
-  word-spacing: 3px;
-  margin: 20px 0px 20px 0px;
+  color: #b794fe;
+  letter-spacing: 0.1rem;
+  margin: 1.25rem 0rem 1.25rem 0rem;
 }
 
 .starImg {
-  width: 18px;
-  height: 18px;
-  margin: 2px;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0.125rem;
 }
 
 .header {
   font-weight: 500;
-  margin: 10px 0px 10px 0px;
+  margin: 0.6rem 0rem 0.6rem 0rem;
+}
+
+.websiteAndFlagWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .nameAndRateWrapper {
+    justify-content: space-evenly;
+  }
+  .storeWrapper {
+    gap: 0px;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .storeImage {
+    display: none;
+  }
+  .nameAndRateWrapper {
+    justify-content: center;
+  }
+  .storeWrapper {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .nameAndRateWrapper {
+    justify-content: center;
+  }
 }

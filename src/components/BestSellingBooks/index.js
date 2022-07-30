@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import StoreContext from "../../context";
+import noData from "../../assets/icons/cancel.png";
 import "./BestSellingBooks.css";
 
 const BestSellingBooks = ({ store }) => {
@@ -30,17 +31,26 @@ const BestSellingBooks = ({ store }) => {
       return book;
     });
 
-    const renderedBooks = booksWithAuthorName.slice(0, 2).map((book) => (
-      <tr>
-        <td>{book.attributes.name}</td>
-        <td>{book.authorName.fullName}</td>
-      </tr>
-    ));
+    const renderedBooks = (
+      <table>
+        <tbody>
+          {booksWithAuthorName.slice(0, 2).map((book) => (
+            <tr>
+              <td>{book.attributes.name}</td>
+              <td>{book.authorName.fullName}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
 
     return (
       <>
         {booksWithAuthorName.length === 0 ? (
-          <h4>No data available</h4>
+          <div className="noDataWrapper">
+            <img src={noData} alt="noData" className="nodataIcon" />
+            <p className="nodata">No data available</p>
+          </div>
         ) : (
           renderedBooks
         )}
@@ -49,12 +59,10 @@ const BestSellingBooks = ({ store }) => {
   };
 
   return (
-    <>
-      <h3>Best-selling Books</h3>
-      <table>
-        <tbody>{extractBestSellingBooks(store)}</tbody>
-      </table>
-    </>
+    <div className="bestBooksWrapper">
+      <h3 className="title">Best-selling Books</h3>
+      {extractBestSellingBooks(store)}
+    </div>
   );
 };
 

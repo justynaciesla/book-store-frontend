@@ -1,24 +1,36 @@
 .dateAndWebsiteWrapper {
   display: flex;
-  margin: 20px;
+  margin: 1.25rem;
 }
 
 .date {
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 500;
-  margin: 0px 0px 0px 40px;
+  margin: 0rem 0rem 0rem 2.5rem;
 }
 
 .website {
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 500;
   color: black;
   text-decoration: none;
-  margin: 0px 0px 0px 5px;
+  margin: 0rem 0rem 0rem 0.3rem;
   cursor: pointer;
   transition: color 0.2s;
 }
 
 .website:hover {
   color: #b794fe;
+}
+
+@media only screen and (max-width: 720px) {
+  .date {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .website {
+    font-size: 0.8rem;
+  }
 }
