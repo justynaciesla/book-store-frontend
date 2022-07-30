@@ -1,24 +1,27 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
+import StoreContext from "../../context";
+import { v4 as uuidv4 } from "uuid";
 import Store from "../Store";
 import "./StoreWrapper.css";
-import StoreContext from "../../context";
 
 const StoresWrapper = () => {
-  const { stores, setFlag, flag } = useContext(StoreContext);
+  const { stores } = useContext(StoreContext);
+
   const storeData = stores.data;
   const storeIncluded = stores.included;
-  const filteredData = storeIncluded?.filter(
+
+  const countriesData = storeIncluded?.filter(
     (item) => item.type === "countries"
   );
 
   return (
-    <div className="background">
+    <div className="wrapper">
       {storeData?.map((data) => {
-        const countryCodeData = filteredData?.find(
+        const countryCodeData = countriesData?.find(
           (country) => country.id === data.relationships.countries.data.id
         );
 
-        return <Store store={{ data, ...countryCodeData }} />;
+        return <Store key={uuidv4()} store={{ data, ...countryCodeData }} />;
       })}
     </div>
   );

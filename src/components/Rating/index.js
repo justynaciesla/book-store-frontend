@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import Star from "../../assets/icons/fullStar.png";
 import OutlinedStar from "../../assets/icons/star.png";
 import "./Rating.css";
@@ -15,8 +16,8 @@ const Rating = ({ rating }) => {
       starArray.push(OutlinedStar);
     }
 
-    return starArray.map((imgSource) => (
-      <img src={imgSource} alt="starImg" className="starImg" />
+    return starArray.map((starImg) => (
+      <img key={uuidv4()} src={starImg} alt="starImg" className="starImg" />
     ));
   };
 
