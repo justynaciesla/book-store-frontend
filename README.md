@@ -1,12 +1,6 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-Runs the app in the development mode.
-Open http://localhost:3000 to view it in the browser.
-
-The page will reload if you make edits.
-You will also see any lint errors in the console.
-
 
 ## Running the app
 
@@ -19,7 +13,7 @@ You will also see any lint errors in the console.
 ### Running the app 
 You are ready now to run this app, to do so please:
 1. clone this repo locally, 
-2. in the project directory run `npm start`to run the app in the development mode. 
+2. in the project directory run `npm start` to run the app in the development mode. 
 3. open http://localhost:3001 to view it in the browser.
 
 The page will reload if you make edits.
