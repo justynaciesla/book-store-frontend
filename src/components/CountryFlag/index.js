@@ -3,12 +3,13 @@ import StoreContext from "../../context";
 import "./CountryFlag.css";
 
 const CountryFlag = ({ store }) => {
-  const { flag } = useContext(StoreContext);
+  const { flags } = useContext(StoreContext);
+
   const code = store.store.attributes.code;
-  const lowercaseCode = code.toLowerCase();
+  const lowercaseCode = code.toLowerCase() + ".png";
 
   const renderFlag = () => {
-    const url = flag.find((item) => item.slice(-6) === lowercaseCode + ".png");
+    const url = flags.find((item) => item.slice(-6) === lowercaseCode);
     return <img className="flag" src={url} alt="flag" />;
   };
 

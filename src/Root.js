@@ -4,7 +4,7 @@ import StoresWrapper from "./components/StoresWrapper";
 
 const Root = () => {
   const [stores, setStores] = useState([]);
-  const [flag, setFlag] = useState([]);
+  const [flags, setFlags] = useState([]);
 
   const url = "http://localhost:3000/stores";
 
@@ -38,7 +38,7 @@ const Root = () => {
                 })
               );
             });
-            setFlag(flags);
+            setFlags(flags);
           };
           fetchFlag();
         })
@@ -51,8 +51,8 @@ const Root = () => {
     <StoreContext.Provider
       value={{
         stores,
-        flag,
-        setFlag,
+        flags,
+        setFlags,
         setStores,
       }}
     >
