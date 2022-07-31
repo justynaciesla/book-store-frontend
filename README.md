@@ -13,7 +13,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Running the app 
 You are ready now to run this app, to do so please:
 1. clone this repo locally, 
-2. in the project directory run `npm start` to run the app in the development mode. 
+2. in the project directory run `npm install`
+2. run `npm start` to run the app in the development mode. 
 3. open http://localhost:3001 to view it in the browser.
 
 The page will reload if you make edits.
