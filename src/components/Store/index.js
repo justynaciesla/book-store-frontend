@@ -26,12 +26,7 @@ const Store = (store) => {
           establishmentDate={establishmentDate}
           website={website}
         />
-
-        {/* I am straggeling with extracting png for flag image.
-          Because of that I leave here commented code. 
-          I would be happy to come back to it after my holidays */}
-
-        {/* <CountryFlag store={store} /> */}
+        <CountryFlag store={store} />
       </div>
     </div>
   );

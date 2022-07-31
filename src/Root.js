@@ -19,6 +19,34 @@ const Root = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    let flags = [];
+
+    const fetchData = async () => {
+      await fetch(url).then((response) =>
+        response.json().then((data) => {
+          const urls = data.included
+            .filter((item) => item.type === "countries")
+            .map((i) => i.attributes.code)
+            .map((j) => `https://restcountries.com/v3.1/alpha/${j}`);
+
+          const fetchFlag = async () => {
+            urls.map(async (url) => {
+              await fetch(url).then((response) =>
+                response.json().then((data) => {
+                  flags.push(data[0].flags.png);
+                })
+              );
+            });
+            setFlag(flags);
+          };
+          fetchFlag();
+        })
+      );
+    };
+    fetchData();
+  }, []);
+
   return (
     <StoreContext.Provider
       value={{

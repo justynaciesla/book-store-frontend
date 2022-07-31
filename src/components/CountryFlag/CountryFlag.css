@@ -10,8 +10,7 @@
 
 @media only screen and (max-width: 720px) {
   .flag {
-    height: 2.1rem;
-    width: 3.7rem;
+    display: none;
   }
 }
 
